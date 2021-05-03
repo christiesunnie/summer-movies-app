@@ -34,10 +34,12 @@ const DisplaySelectedList = ({ list, handleRemove, handleSave }) => {
 
     return (
         <div className="wrapper">
+            {/* Check if the selected list has more than 10 movies and display a warning message to ask the user remove extra movies */}
             {list.length > 10 ? (
                 <div className="prediction-container">
                     <h2>Prediction List of Summer Movie</h2>
                     <ol className="prediction-list">
+                        {/* Looping through the list of selected movies array state to display on the page*/}
                         {list.map((mov, index) => {
                             return (
                                 <li key={mov.key}>
@@ -57,6 +59,7 @@ const DisplaySelectedList = ({ list, handleRemove, handleSave }) => {
                     </h3>
                 </div>
             ) : list.length !== 0 ? (
+                // If the list has less than 10 movies, display the button "Save the list" on the page
                 <div className="prediction-container">
                     <h2>Prediction List of Summer Movie</h2>
                     <ol className="prediction-list">
