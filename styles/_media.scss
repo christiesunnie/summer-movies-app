@@ -1,0 +1,113 @@
+/* Media queries styling */
+@media (max-width: 1075px) {
+    .prediction-wrapper {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 20px;
+    }
+
+    .app-description,
+    .search-message,
+    .prediction-container h2 {
+        font-size: $font-size-2;
+    }
+}
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+    h1 {
+        font-size: calc(20px + 4vh);
+        line-height: calc(20px + 3vh);
+    }
+
+    .movie-detail-inner {
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .movie-description {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .movie-poster {
+        padding-top: 50px;
+    }
+
+    .movie-poster img {
+        max-width: 70%;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+    .searched-movies-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .search-message,
+    .prediction-container h2 {
+        font-size: $font-size-1;
+    }
+
+    .prediction-container li,
+    .prediction-container p {
+        font-size: $font-size-3;
+    }
+
+    footer,
+    .prediction-container button {
+        font-size: $font-size-4;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    h1 {
+        padding-left: 10px;
+        font-size: calc(20px + 2vh);
+        line-height: calc(20px + 1vh);
+    }
+
+    .app-description {
+        font-size: $font-size-1;
+        padding: 40px 20px;
+    }
+
+    .search-message,
+    .prediction-container h2 {
+        font-size: $font-size-3;
+    }
+
+    .prediction-list li {
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .prediction-list button {
+        width: 100px;
+        margin: 10px 0;
+    }
+
+    .searched-movies-list {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .movie-description h2 {
+        font-size: $font-size-2;
+    }
+
+    .movie-description p,
+    .btn-add,
+    .prediction-container li,
+    .prediction-container p {
+        font-size: $font-size-4;
+    }
+
+    .movie-detail-outer {
+        padding: 50px 20px;
+    }
+}
