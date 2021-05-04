@@ -12,6 +12,7 @@ function App() {
             <Header />
             <SearchFormSection />
             <Footer />
+            {/* Creating the scroll up button animation to go back to the top of the page */}
             <ScrollUpButton
                 style={{
                     backgroundColor: "#000",

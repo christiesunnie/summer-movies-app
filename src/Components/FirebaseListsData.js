@@ -63,6 +63,7 @@ const FirebaseListsData = ({ handleSelect }) => {
 
     return (
         <section className="movie-lists-container">
+            {/* Passing the values for props of DisplaySelectedList component */}
             <DisplaySelectedList
                 list={list}
                 handleRemove={handleRemove}
