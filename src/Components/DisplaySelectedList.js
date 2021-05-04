@@ -1,6 +1,7 @@
 import DisplayPredictedLists from "./DisplayPredictedLists";
 import { useEffect, useState } from "react";
 import firebase from "../firebase.js";
+import Swal from "sweetalert2";
 
 const DisplaySelectedList = ({ list, handleRemove, handleSave }) => {
     const [predictedLists, setPredictedLists] = useState([]);
@@ -23,13 +24,23 @@ const DisplaySelectedList = ({ list, handleRemove, handleSave }) => {
     }, []);
 
     const handleDelete = (key) => {
-        const confirmDelete = window.confirm(
-            "Are you sure to delete the list?"
-        );
-        if (confirmDelete) {
-            const dbRef = firebase.database().ref("prediction");
-            dbRef.child(key).remove();
-        }
+        // Showing the pop box to confirm if the user wants to delete the list
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire("Deleted!", "Your file has been deleted.", "success");
+                // When the user deleted the list, delete the list from Firebase data server
+                const dbRef = firebase.database().ref("prediction");
+                dbRef.child(key).remove();
+            }
+        });
     };
 
     return (
