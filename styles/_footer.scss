@@ -1,0 +1,16 @@
+/* Footer styling */
+footer {
+    text-align: center;
+    background-color: $pink-primary;
+    padding: 5px;
+}
+
+footer a {
+    text-decoration: none;
+    color: $black-primary;
+}
+
+footer a:hover,
+footer a:focus {
+    color: $green-primary;
+}

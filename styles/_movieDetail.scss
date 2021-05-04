@@ -1,0 +1,27 @@
+.movie-detail-outer {
+    padding: 50px;
+    background-color: $green-primary;
+}
+
+.movie-detail-inner {
+    display: flex;
+    color: $white-primary;
+}
+
+.movie-description {
+    width: 70%;
+    padding-right: 50px;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+    background-color: $pink-primary;
+}
+
+.movie-description h2 {
+    margin-top: 0;
+}
+
+.movie-poster img {
+    max-width: 100%;
+}
