@@ -3,17 +3,19 @@ import DisplayYears from "./DisplayYears";
 import FirebaseListsData from "./FirebaseListsData";
 
 function SearchFormSection() {
-    //this use state gets the year that is being populated in the dorpdown menu
+    //Updating state gets the year that is being populated in the dorpdown menu
     const [year, setYear] = useState([]);
     //user selceted year. this info is also passed to the api call
     const [userYear, setUserYear] = useState("placeHolder");
     const [yearSelected, setYearSelected] = useState(false);
 
+    // Listening to the change event when the user select the year from dropdown menu to set the yearSelected state
     const handleUserChoice = (e) => {
         //getting the usenpmr value
         setUserYear(e.target.value);
     };
 
+    // Toogle function to display or hide dropdown menu
     const handleSelect = () => {
         setYearSelected(!yearSelected);
     };
@@ -21,10 +23,10 @@ function SearchFormSection() {
     useEffect(() => {
         //CREDIT THIS SOURCE https://renatello.com/javascript-array-of-years/
         const max = new Date().getFullYear();
-        //change the number to display more or less years
+        // Showing only 50 years back from the current year in the dropdown menu
         const min = max - "50";
         const years = [];
-
+        // Create an array of years to set the year state
         for (let i = max; i >= min; i--) {
             years.push(i.toString());
             setYear(years);
@@ -32,6 +34,7 @@ function SearchFormSection() {
     }, []);
 
     return (
+        // Display the form section for selecting the years
         <section className="search-container">
             <h2 className="app-description">
                 Summer Movies is an app that lets users compete with friends in
@@ -51,6 +54,7 @@ function SearchFormSection() {
                         <option value="placeHolder" disabled>
                             Year
                         </option>
+                        {/* Looping through the array of year state to disply the options for dropdown menu */}
                         {year.map((year) => {
                             return (
                                 <option key={year} value={year}>
@@ -61,7 +65,9 @@ function SearchFormSection() {
                     </select>
                 </form>
             </div>
+            {/* Passing the values for props of DisplayYears component */}
             <DisplayYears year={userYear} handleSelect={handleSelect} />
+            {/* Passing the values for props of FirebaseListsData component */}
             <FirebaseListsData handleSelect={handleSelect} />
         </section>
     );

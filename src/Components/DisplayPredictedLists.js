@@ -8,6 +8,7 @@ const DisplayPredictedLists = ({ predictedLists, handleDelete }) => {
 
     return (
         <div className="prediction-wrapper wrapper">
+            {/* Looping through the sorted prediction list to display the list */}
             {predictedLists.map((lists) => {
                 return (
                     <div key={lists.key} className="prediction-container">

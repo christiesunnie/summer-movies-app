@@ -8,7 +8,7 @@ const DisplayMovieDetails = (props) => {
     // Rendering the API call to fetch the data for each movie
     useEffect(() => {
         const apiKey = "a95c3731bb8d542ff3503355315d717a";
-        // passing prop of movidId from
+        // passing prop of movidId from DisplayAllMovies component
         const searchUrl = `https://api.themoviedb.org/3/movie/${props.movieId}`;
         const url = new URL(searchUrl);
         url.search = new URLSearchParams({
@@ -20,10 +20,12 @@ const DisplayMovieDetails = (props) => {
                 return res.json();
             })
             .then((jsonResponse) => {
+                // Update movie state from the data of API call
                 setMovie(jsonResponse);
             });
     }, [props.movieId]);
 
+    // Function to push the movie is added to the list to Firebase for storing data when the click event is triggered
     const selectMovie = (title) => {
         props.handleSelect();
         const dbRef = firebase.database().ref();
@@ -31,6 +33,7 @@ const DisplayMovieDetails = (props) => {
     };
 
     return (
+        // Display the detail of movie is selected
         <div className="movie-detail-outer">
             <div className="wrapper movie-detail-inner">
                 <div className="movie-description">
